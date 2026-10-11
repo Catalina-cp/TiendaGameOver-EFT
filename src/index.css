@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+/* colores principales */
+:root {
+  --fondo-principal: #1b1033;
+  --fondo-oscuro: #0f1020;
+  --texto-principal: #f8fafc;
+  --celeste: #06b6d4;
+  --morado: #8b5cf6;
+  --rosado: #ff00ff;
+  --fuente-principal: 'Montserrat', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--fuente-principal);
+  background-color: var(--fondo-principal);
+  color: var(--texto-principal);
+  min-height: 100vh;
+  display: flex;               /* Flexbox: footer siempre abajo */
+  flex-direction: column;
+}
+
+#root { display: flex; flex-direction: column; min-height: 100vh; }
+main { flex: 1; }
+section[id], header[id] { scroll-margin-top: 70px; }
+
+/* Navbar */
+.barra-nav { background-color: var(--fondo-oscuro); border-bottom: 1px solid var(--celeste); }
+.barra-nav .nav-link { color: var(--celeste); font-weight: 700; }
+.barra-nav .nav-link:hover { color: var(--rosado); }
+
+/* Portada */
+.portada {
+  background-color: var(--fondo-oscuro);
+  border-bottom: 1px solid var(--celeste);
+  text-align: center;
+  padding: 50px 20px;
+}
+.portada h1 { color: var(--morado); font-size: 4rem; font-weight: 700; margin-bottom: 15px; }
+.portada p { max-width: 700px; margin: 0 auto 30px; font-size: 1.1rem; }
+
+/* Secciones */
+.seccion { padding: 40px 15px; }
+.seccion h2 { color: var(--rosado); text-align: center; font-size: 2rem; margin-bottom: 25px; }
+.seccion-form { max-width: 760px; }
+
+/* Filtros (Flexbox) */
+.filtros { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
+.btn-filtro {
+  color: var(--celeste);
+  border: 1px solid var(--morado);
+  border-radius: 10px;
+  font-weight: 700;
+  padding: 8px 20px;
+}
+.btn-filtro:hover, .btn-filtro.activo { background-color: var(--celeste); color: var(--fondo-principal); border-color: var(--celeste); }
+
+/* Grilla de productos (CSS Grid) */
+.grilla-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.tarjeta-juego {
+  background-color: var(--fondo-oscuro);
+  color: var(--texto-principal);
+  border: 3px solid var(--celeste);
+  border-radius: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.tarjeta-juego:hover { transform: translateY(-8px); box-shadow: 0 0 15px var(--morado); }
+.grilla-productos > :nth-child(even) { border-color: var(--morado); }
+.tarjeta-juego .card-img-top { height: 200px; object-fit: contain; padding: 15px; background: #fff1; border-radius: 12px 12px 0 0; }
+.tarjeta-juego .card-text { font-size: 0.9rem; }
+.etiqueta-categoria { background-color: var(--morado); }
+.precio { color: var(--celeste); font-weight: 700; font-size: 1.25rem; }
+.sin-resultados { color: var(--celeste); font-size: 1.1rem; }
+
+/* Formularios */
+.formulario {
+  background-color: var(--fondo-oscuro);
+  border: 2px solid var(--morado);
+  border-radius: 15px;
+  padding: 25px;
+}
+.formulario .form-control, .formulario .form-select { background-color: #ffffff12; color: var(--texto-principal); border-color: var(--morado); }
+.formulario .form-control:focus, .formulario .form-select:focus { border-color: var(--celeste); box-shadow: 0 0 0 0.2rem #06b6d455; }
+.formulario .form-select option { color: #000; }
+.formulario .invalid-feedback { font-weight: 600; }
+
+.btn-neon { background-color: var(--morado); color: #fff; font-weight: 700; border-radius: 10px; border: none; padding: 10px 24px; }
+.btn-neon:hover { background-color: var(--celeste); color: var(--fondo-principal); }
+
+/* Footer (Flexbox) */
+.pie {
+  background-color: var(--fondo-oscuro);
+  border-top: 1px solid var(--morado);
+  padding: 20px;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pie p { margin: 0; }
+.redes { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.pie a { color: var(--celeste); text-decoration: none; font-weight: 600; }
+.pie a:hover { color: var(--rosado); }
+
+@media (max-width: 600px) {
+  .portada h1 { font-size: 2.5rem; }
+  .pie { justify-content: center; text-align: center; }
+}
+
+/* Carrito */
+.item-carrito { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--morado); }
